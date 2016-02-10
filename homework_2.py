@@ -1,6 +1,6 @@
 # coding: utf8
 
-## Function get_integer - returns integer or error
+# Function get_integer - returns integer or error
 def get_integer(text):
     try:
          input_value = int(raw_input(text))
@@ -10,6 +10,7 @@ def get_integer(text):
         return input_value
 
 # HomeWork 1.2
+print u'Общество в начале XXI века\n'
 x = get_integer('Введите ваш возраст: ')
 if (x == 'error' or x <= 0 or x > 120):
     print 'Ошибка, это программа для людей'
