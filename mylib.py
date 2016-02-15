@@ -10,4 +10,4 @@ def get_integer(text):
             print 'Это не цифра !'
         else:
             y = True
-            return input_value
+            return int(input_value)
