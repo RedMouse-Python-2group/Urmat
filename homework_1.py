@@ -1,7 +1,8 @@
 # coding: utf8
+import re, random
+
 def get_url():
     """ This function returns attribute of file if it exists"""
-    import re
     str = raw_input('Введите путь или несколько путей к файлу разделенный "//" (Example: //home/libron/Downloads): ')
     pattern = '\/\/(?:[\w\.]+)(?:[a-z]{2,6}\.?)(?:\/[\w\.]*)*\/?'
     return re.findall(pattern, str)
@@ -25,11 +26,19 @@ def get_file_info(url, file):
 
 def play_vanga():
     """ Function which gives random answer to your question """
-    import random
     list = ["Да","Нет", "Не знаю", "Пошел ты !","Бог знает", "Тупой вопрос", "Хмм...","Да ну на ?!","Так точно !"]
     answer = random.choice(list)
     question = raw_input("Задайте Ваш вопрос:\n")
     print '%s - %s' % (answer, question)
+
+def get_random_text(file = 'words.txt'):
+    """ Function reads file and making random text """
+    f = open(file,"r")
+    text = f.read()
+    f.close()
+    result = re.findall(r'\w+', text)
+    random.shuffle(result)
+    return (' '.join(result))
 
 
 # Zadanie 2
@@ -39,3 +48,11 @@ print get_file_info(url, file)
 
 # Zadanie 3
 play_vanga()
+
+# Zadanie 4
+str = get_random_text()
+print str
+word = raw_input('Введите слово которое требуется найти и заменить на ревертированное значение: ')
+text = re.sub(r'^%s' % word, word[::-1], str)
+text = re.sub(r'%s$' % word, word[::-1], text)
+print text
