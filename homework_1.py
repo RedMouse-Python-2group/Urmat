@@ -1,9 +1,23 @@
-# coding: utf8
+#coding=utf-8
+from abc import ABCMeta, abstractmethod, abstractproperty
 
-class Task1:    # HomeWork 1.1
+class Unknown():
+    __metaclass__ = ABCMeta
+    x = 0
+
+class Task1(Unknown):    # HomeWork 1.1
 
     def __init__(self):
         self.x = self.get_integer('Введите число от 1 до 9: ')
+        if  (self.x < 1 or self.x > 9):
+            print "Введенная цифра меньше 1 или больше 9 !"
+        elif self.x <= 3:    # Option 1
+            print self.option_1()
+        elif self.x <= 6:    # Option 2
+            print self.option_2()
+        elif self.x <= 9:    # Option 3
+            print self.option_3()
+
 
     def get_integer(self, text):
         """Function returns integer until it is True"""
@@ -24,14 +38,10 @@ class Task1:    # HomeWork 1.1
         return self.x ** self.get_integer('Введите степень: ')
 
     def option_3(self):
-        return  [x for x in range(x+1,x+11)]
+        return  [self.x for self.x in range(self.x+1,self.x+11)]
 
-a = Task1()
-if  (a.x < 1 or a.x > 9):
-    print "Введенная цифра меньше 1 или больше 9 !"
-elif a.x <= 3:    # Option 1
-    print a.option_1()
-elif a.x <= 6:    # Option 2
-    print a.option_2()
-elif a.x <= 9:    # Option 3
-    print a.option_3()
+class Child(Task1):
+    def __init__(self):
+        super(Child, self).__init__()
+
+a = Child()
