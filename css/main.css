@@ -1,10 +1,9 @@
 html {
-            background: url(../../Pictures/1367568.jpg);
- -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
- 
+	background: url(../../Pictures/1367568.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 body {
@@ -17,8 +16,8 @@ body {
 
 #wrapper {
     margin: 0 auto;
-      width: 1024px;
-      }
+    width: 1024px;
+}
 
 #header {
     color: white;
@@ -30,7 +29,6 @@ body {
     width: 100%;
     border: 1px solid black;
     padding: 0;
-    
 }
 
 #header .part-1 {
@@ -47,35 +45,35 @@ body {
 }
 
 #main-nav {
-  display: block;
-  position: relative;
+	display: block;
+	position: relative;
 }
 
 #main-nav ul {
     width: 100%;
-  margin: 0 auto;
-  padding-left: 0;
-  list-style: none;
-  overflow: hidden;
+	margin: 0 auto;
+  	padding-left: 0;
+  	list-style: none;
+  	overflow: hidden;
 }
 
 #main-nav a {
-     text-decoration: none;
-  text-align: center;
-  display: block;
-  color: #868686;
-  padding: 0.5em 0;
-  font-weight: bold;
-  transition: 0.5s ease-in-out;
-  font-family: 'Montez', cursive; /*скачать шрифт можно с сайта https://www.google.com/fonts/*/
+    text-decoration: none;
+	text-align: center;
+	display: block;
+	color: #868686;
+  	padding: 0.5em 0;
+  	font-weight: bold;
+  	transition: 0.5s ease-in-out;
+  	font-family: 'Montez', cursive; /*скачать шрифт можно с сайта https://www.google.com/fonts/*/
 }
 
 #main-nav a:hover {
-  color: #f70211;
+	color: #f70211;
 }
 
 #main-nav li {
-  float: left;
+	float: left;
     border-right: 1px solid red;
     width: 100px;
     display: block;
@@ -117,25 +115,25 @@ body {
     margin-bottom: 15px;
     padding: 10px;
 } 
+
 #search img {
     margin-left: 8px;
 }
 
 #sign-in {
     border-radius: 15px;
-     background-color: white;  
+    background-color: white;  
     border-top: 3px solid rgb(202,148,78);
     margin: 0;
     margin-bottom: 15px;
     padding: 15px 30px;
 }
 
-
 #nav {
     border-radius: 15px;
     border-top: 3px solid rgb(202,148,78);
     background-color: white;
-   padding: 15px 0;
+	padding: 15px 0;
     margin: 0
 }
 
@@ -146,14 +144,14 @@ body {
     list-style: none;
 }
 
-
 #nav li {
-     padding: 0 0 0 30px; 
-        border: 1px solid #E5E5E5;
-     display: block;
+    padding: 0 0 0 30px; 
+    border: 1px solid #E5E5E5;
+    display: block;
     margin-bottom: -1px;
     color: #0088CC;
 }
+
 #nav ul a {
     display: block;
     padding: 8px;
@@ -161,7 +159,7 @@ body {
 }
 
 #nav ul li:hover {
-background: #F5F5F5;
+	background: #F5F5F5;
 }
 
 #content {
