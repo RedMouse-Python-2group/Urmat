@@ -3,13 +3,13 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Lesson 10 - HTML/CSS</title>
-        <meta name="description" content="An interactive getting started guide for Brackets.">
-        <link rel="stylesheet" href="css/main.css">
-        <script src="js/jquery-1.12.1.min.js"></script>
-        <script src="js/menu_dropdown.js"></script>
-        <script src="js/resize_img.js"></script>
-        <style> 
+        <title>Lesson 15 - Templates</title>
+        <meta name="description" content="Django project">
+        <link rel="stylesheet" href="../static/css/main.css">
+        <script src="../static/js/jquery-1.12.1.min.js"></script>
+        <script src="../static/js/menu_dropdown.js"></script>
+        <script src="../static/js/resize_img.js"></script>
+        <style>
             @import "http://webfonts.ru/import/andada.css";
         </style>
     </head>
@@ -22,8 +22,8 @@
                 <div>
                     <nav id="main-nav">
                                 <ul >
-                                <li><a href="#">Главное</a></li>    
-                                <li><a href="#">Обо мне</a></li>    
+                                <li><a href="#">Главное</a></li>
+                                <li><a href="#">Обо мне</a></li>
                                 <li><a href="#">Портфолио</a></li>
                                 <li><a href="#">Контакты</a></li>
                                 <li><a href="#">Рубрики</a>
@@ -39,23 +39,23 @@
                     </nav>
                 </div>
             </div>
-            <div id="page-logo"> <img src="img/logo.png" /></div>
-            
+            <div id="cat-logo"> <img src="../static/img/logo.png" /></div>
+
             <div id="sidebar">
                 <div id="search">
-                    <input type="text" size="22"/><a href="#"><img src="img/Search.png" width="23px" heigth="23px" /></a>
+                    <input type="text" size="22"/><a href="#"><img src="../static/img/Search.png" width="23px" heigth="23px" /></a>
                 </div>
                 <div id="sign-in">
                     <h4>Авторизация</h4>
                     <p>login<input type="text" /></p>
                     <p>password<input type="password" /></p>
                     <input type="button" value="Войти"/>
-                
+
                 </div>
-                
+
                 <nav id="nav">
                     <h4>Рубрики</h4>
-                <ul> 
+                <ul>
                     <li><a href="#">Web</a></li>
                     <li><a href="#">Software</a></li>
                     <li><a href="#">Hardware</a></li>
@@ -68,16 +68,16 @@
                 </ul>
                 </nav>
             </div>
-            
-            
+
+
             <div id="content">
             <div id="resize-img">
               <h3>Click to resize fuckin image:</h3>
                 <input type="button" value="Увеличивать" class="zoomIn">
                 <input type="button" value="Уменьшать" class="zoomOut">
-                <img src="img/python_logo.png" />
+                <img src="../static/img/python_logo.png" />
             </div>
-                
+
                 <h3>Projects in Brackets</h3>
                 <p> Once you're ready to get out of this sample project and edit your own code, you can use the dropdown
                     in the left sidebar to switch folders. Right now, the dropdown says "Getting Started" - that's the
