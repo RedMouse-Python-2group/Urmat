@@ -1,7 +1,8 @@
 from django.conf.urls import url
-from article import views
+from django.views.generic import TemplateView
+
+from article.views import ArticlesList
 
 urlpatterns = [
-    url(r'^articles/all/$', 'article.views.articles'),
-    url(r'^articles/get/(?P<id>\d+)/$', 'article.views.article'),
+    url(r'^articles/$', ArticlesList.as_view()),
 ]

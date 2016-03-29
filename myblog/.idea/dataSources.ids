@@ -10,7 +10,11 @@
       <column name="article_text" sqlType="TEXT" precision="0" scale="-1" nullable="false" jdbcType="12"/>
       <column name="article_date" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
       <column name="article_likes" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="article_disabled" sqlType="BOOL" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="article_categorie_id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
       <primary-key columns="id"/>
+      <foreign-key name="#FAKE_article_1" columns="article_categorie_id" ref-table="categories" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <index name="article_7fefa6a2" unique="true" columns="article_categorie_id"/>
     </table>
     <table name="auth_group" schema="" catalog="" type="TABLE">
       <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
@@ -73,6 +77,13 @@
       <index name="auth_user_user_permissions_8373b171" unique="true" columns="permission_id"/>
       <index name="auth_user_user_permissions_e8701ad4" unique="true" columns="user_id"/>
       <index name="auth_user_user_permissions_user_id_14a6b632_uniq" unique="true" columns="user_id,permission_id"/>
+    </table>
+    <table name="categories" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="cat_title" sqlType="VARCHAR(20)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="cat_description" sqlType="TEXT" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="cat_disabled" sqlType="BOOL" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <primary-key columns="id"/>
     </table>
     <table name="comments" schema="" catalog="" type="TABLE">
       <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>

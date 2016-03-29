@@ -22,8 +22,8 @@
                 <div>
                     <nav id="main-nav">
                                 <ul >
-                                <li><a href="#">Главное</a></li>
-                                <li><a href="#">Обо мне</a></li>
+                                <li><a href="http://127.0.0.1:8000/articles/">Главное</a></li>
+                                <li><a href="http://127.0.0.1:8000/admin/">Обо мне</a></li>
                                 <li><a href="#">Портфолио</a></li>
                                 <li><a href="#">Контакты</a></li>
                                 <li><a href="#">Рубрики</a>
@@ -47,8 +47,8 @@
                 </div>
                 <div id="sign-in">
                     <h4>Авторизация</h4>
-                    <p>login<input type="text" /></p>
-                    <p>password<input type="password" /></p>
+                    <label for="login">login</label><input type="text" id="login"/>
+                    <label for="password">password</label><input type="password" id="password"/>
                     <input type="button" value="Войти"/>
 
                 </div>
@@ -77,31 +77,32 @@
                 <input type="button" value="Уменьшать" class="zoomOut">
                 <img src="../static/img/python_logo.png" />
             </div>
+                {% block articles %}
+                    <h3>Projects in Brackets</h3>
+                    <p> Once you're ready to get out of this sample project and edit your own code, you can use the dropdown
+                        in the left sidebar to switch folders. Right now, the dropdown says "Getting Started" - that's the
+                        folder containing the file you're looking at right now. Click on the dropdown and choose "Open Folder…"
+                        to open your own folder.
+                        You can also use the dropdown later to switch back to folders you've opened previously, including this
+                        sample project.</p>
 
-                <h3>Projects in Brackets</h3>
-                <p> Once you're ready to get out of this sample project and edit your own code, you can use the dropdown
-                    in the left sidebar to switch folders. Right now, the dropdown says "Getting Started" - that's the
-                    folder containing the file you're looking at right now. Click on the dropdown and choose "Open Folder…"
-                    to open your own folder.
-                    You can also use the dropdown later to switch back to folders you've opened previously, including this
-                    sample project.</p>
+                    <h3>Projects in Brackets</h3>
+                    <p> Once you're ready to get out of this sample project and edit your own code, you can use the dropdown
+                        in the left sidebar to switch folders. Right now, the dropdown says "Getting Started" - that's the
+                        folder containing the file you're looking at right now. Click on the dropdown and choose "Open Folder…"
+                        to open your own folder.
+                        You can also use the dropdown later to switch back to folders you've opened previously, including this
+                        sample project.</p>
 
-                <h3>Projects in Brackets</h3>
-                <p> Once you're ready to get out of this sample project and edit your own code, you can use the dropdown
-                    in the left sidebar to switch folders. Right now, the dropdown says "Getting Started" - that's the
-                    folder containing the file you're looking at right now. Click on the dropdown and choose "Open Folder…"
-                    to open your own folder.
-                    You can also use the dropdown later to switch back to folders you've opened previously, including this
-                    sample project.</p>
-
-                <h3>Projects in Brackets</h3>
-                <p> Once you're ready to get out of this sample project and edit your own code, you can use the dropdown
-                    in the left sidebar to switch folders. Right now, the dropdown says "Getting Started" - that's the
-                    folder containing the file you're looking at right now. Click on the dropdown and choose "Open Folder…"
-                    to open your own folder.
-                    You can also use the dropdown later to switch back to folders you've opened previously, including this
-                    sample project.</p>
-            </div>
+                    <h3>Projects in Brackets</h3>
+                    <p> Once you're ready to get out of this sample project and edit your own code, you can use the dropdown
+                        in the left sidebar to switch folders. Right now, the dropdown says "Getting Started" - that's the
+                        folder containing the file you're looking at right now. Click on the dropdown and choose "Open Folder…"
+                        to open your own folder.
+                        You can also use the dropdown later to switch back to folders you've opened previously, including this
+                        sample project.</p>
+                </div>
+            {% endblock articles %}
             <div class="clear"></div>
             <div id="footer">
                 <p align="center">Made by Urmat Bekbo</p>
