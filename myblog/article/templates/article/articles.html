@@ -1,11 +1,16 @@
 {% extends "base.html" %}
 
-{% block articles %}
-{% for s in object_list %}
-    <h4>{{ s.article_title }}</h4>
-        <h6>{{ s.article_date }}</h6>
-        <p>{{ s.article_text }}</p>
-        <p>{{ s.article_likes }}</p>
-    <h1> {{ s.cat_title }}</h1>
-{% endfor %}
-{% endblock articles %}
+    {% block articles %}
+    {% for s in object_list %}
+        <h4>{{ s.article_title }}</h4>
+            <h6>{{ s.article_date }}</h6>
+            <p>{{ s.article_text }}</p>
+            <p>{{ s.article_likes }}</p>
+        <h1> {{ s.cat_title }}</h1>
+    {% endfor %}
+    {% for cat in categories %}
+        <p>{{ cat.cat_title }}</p>
+        <p>{{ cat.cat_description }}</p>
+        <p>{{ cat.cat_disabled }}</p>
+    {% endfor %}
+    {% endblock articles %}

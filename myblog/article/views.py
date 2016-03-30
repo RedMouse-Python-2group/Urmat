@@ -7,5 +7,10 @@ from article.models import Article, Categories
 # Create your views here.
 
 class ArticlesList(ListView):
-    model = Article, Categories
+    model = Article
     template_name="article/articles.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(ArticlesList, self).get_context_data(**kwargs)
+        context['categories'] = Categories.objects.all()
+        return context

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+    {% block top_menu %}
+        <nav id="main-nav">
+                                <ul>
+                                    {% for menu in object_list %}
+                                    <li><a href="{{ menu.menu_url}}">{{ menu.menu_title }}</a></li>
+                                    {% endfor %}
+                                    <li><a href="#">Рубрики</a>
+                                        <ul>
+                                            <li><a href="#">Web</a></li>
+                                            <li><a href="#">Software</a></li>
+                                            <li><a href="#">IT</a></li>
+                                            <li><a href="#">Photoshop</a></li>
+                                            <li><a href="#">Windows</a></li>
+                                        </ul>
+                                        </li>
+                            </ul>
+
+                    </nav>
+    {% endblock top_menu %}
