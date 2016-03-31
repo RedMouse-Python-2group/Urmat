@@ -1,58 +1,47 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Lesson 15 - Templates</title>
-        <meta name="description" content="Django project">
-        <link rel="stylesheet" href="../static/css/main.css">
-        <script src="../static/js/jquery-1.12.1.min.js"></script>
-        <script src="../static/js/menu_dropdown.js"></script>
-        <script src="../static/js/resize_img.js"></script>
-        <style>
+        {% block main_title %}<title>Lesson 15 - Templates</title>{% endblock %}
+        {% block style_presets %}
+            <link rel="stylesheet" href="{% static "css/main.css" %}" >
+            <style>
             @import "http://webfonts.ru/import/andada.css";
-        </style>
+            </style>
+        {% endblock %}
+        {% block meta_info %}
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="description" content="Django project">
+            <meta name="keywords" content="Django site">
+        {% endblock %}
+        {% block scripts %}
+            <script src="{% static "js/jquery-1.12.1.min.js" %}"></script>
+        {% endblock %}
     </head>
     <body>
         <div id="wrapper">
             <div id="header">
-                <div>
-                    <h1 align="center">Записки <span>IT</span>'шника</h1>
-                </div>
-                <div>
-                    <nav id="main-nav">
-                                <ul >
-                                <li><a href="#">Главное</a></li>
-                                <li><a href="#">Обо мне</a></li>
-                                <li><a href="#">Портфолио</a></li>
-                                <li><a href="#">Контакты</a></li>
-                                <li><a href="#">Рубрики</a>
-                                    <ul>
-                                        <li><a href="#">Web</a></li>
-                                        <li><a href="#">Software</a></li>
-                                        <li><a href="#">IT</a></li>
-                                        <li><a href="#">Photoshop</a></li>
-                                        <li><a href="#">Windows</a></li>
-                                    </ul>
-                                    </li>
-                            </ul>
-                    </nav>
-                </div>
+                    <h1>Записки <span>IT</span>'шника</h1>
             </div>
-            <div id="cat-logo"> <img src="../static/img/logo.png" /></div>
-
+            {% block cat_img %}<div id="cat-logo"> <img src="../static/img/logo.png" /></div>{% endblock %}
+            {% block sidebar %}
             <div id="sidebar">
+                {% block search %}
                 <div id="search">
                     <input type="text" size="22"/><a href="#"><img src="../static/img/Search.png" width="23px" heigth="23px" /></a>
                 </div>
+                {% endblock search %}
+                {% block autorization %}
                 <div id="sign-in">
                     <h4>Авторизация</h4>
-                    <p>login<input type="text" /></p>
-                    <p>password<input type="password" /></p>
+                    <label for="login">login</label><input type="text" id="login"/>
+                    <label for="password">password</label><input type="password" id="password"/>
                     <input type="button" value="Войти"/>
-
                 </div>
-
+                {% endblock autorization %}
+                {% block left_menu %}
                 <nav id="nav">
                     <h4>Рубрики</h4>
                 <ul>
@@ -67,9 +56,11 @@
                     <li><a href="#">Social</a></li>
                 </ul>
                 </nav>
+                {% endblock left_menu %}
             </div>
+            {% endblock sidebar %}
 
-
+            {% block content %}
             <div id="content">
             <div id="resize-img">
               <h3>Click to resize fuckin image:</h3>
@@ -77,7 +68,7 @@
                 <input type="button" value="Уменьшать" class="zoomOut">
                 <img src="../static/img/python_logo.png" />
             </div>
-                {% block article %}
+                {% block articles %}
                     <h3>Projects in Brackets</h3>
                     <p> Once you're ready to get out of this sample project and edit your own code, you can use the dropdown
                         in the left sidebar to switch folders. Right now, the dropdown says "Getting Started" - that's the
@@ -102,7 +93,8 @@
                         You can also use the dropdown later to switch back to folders you've opened previously, including this
                         sample project.</p>
                 </div>
-            {% endblock article %}
+            {% endblock articles %}
+            {% endblock content %}
             <div class="clear"></div>
             <div id="footer">
                 <p align="center">Made by Urmat Bekbo</p>

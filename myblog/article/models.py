@@ -8,6 +8,7 @@ class Categories(models.Model):
         db_table = 'categories'
     cat_title = models.CharField(max_length=20)
     cat_description = models.TextField()
+    cat_url = models.CharField(max_length=200)
     cat_disabled = models.BooleanField(default=False)
 
 class Article(models.Model):

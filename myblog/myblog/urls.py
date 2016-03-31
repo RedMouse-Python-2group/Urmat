@@ -16,7 +16,10 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
+from article.views import ArticlesList
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include('article.urls')),
+    url(r'', ArticlesList.as_view()),
+    url(r'^software/$', include('article.urls')),
 ]

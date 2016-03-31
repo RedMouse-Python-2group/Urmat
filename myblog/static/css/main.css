@@ -44,8 +44,8 @@ body {
 }
 
 #header h1 {
-    margin: 0px;
-    padding: 0.2em 0;
+    margin: 5px;
+    padding-left: 100px;
 }
 
 #cat-logo img {
@@ -207,4 +207,11 @@ h4 {
     text-align: center;
     margin: 0;
     padding: 4px;
+}
+
+.article-short {
+    background-color: #E5E5E5;
+    border-bottom: 1px solid midnightblue;
+    margin-bottom: 15px;
+    padding: 10px;
 }

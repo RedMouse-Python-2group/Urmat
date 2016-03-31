@@ -5,5 +5,8 @@
       <secret-storage>master_key</secret-storage>
       <auth-required>false</auth-required>
     </data-source>
+    <data-source name="Django default" uuid="d63164f6-7734-4690-9457-4aac7fe3127c">
+      <auth-required>false</auth-required>
+    </data-source>
   </component>
 </project>
