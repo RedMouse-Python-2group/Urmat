@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Lesson 10 - HTML/CSS</title>
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>My Site with boostrap</title>
         <meta name="description" content="An interactive getting started guide for Brackets.">
+        
+        <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/main.css">
         <script src="js/jquery-1.12.1.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script src="js/menu_dropdown.js"></script>
         <script src="js/resize_img.js"></script>
         <style> 
@@ -14,99 +19,131 @@
         </style>
     </head>
     <body>
-        <div id="wrapper">
-            <div id="header">
-                <div>
-                    <h1 align="center">Записки <span>IT</span>'шника</h1>
-                </div>
-                <div>
-                    <nav id="main-nav">
-                                <ul >
-                                <li><a href="#">Главное</a></li>    
-                                <li><a href="#">Обо мне</a></li>    
-                                <li><a href="#">Портфолио</a></li>
-                                <li><a href="#">Контакты</a></li>
-                                <li><a href="#">Рубрики</a>
-                                    <ul>
-                                        <li><a href="#">Web</a></li>
-                                        <li><a href="#">Software</a></li>
-                                        <li><a href="#">IT</a></li>
-                                        <li><a href="#">Photoshop</a></li>
-                                        <li><a href="#">Windows</a></li>
-                                    </ul>
-                                    </li>
-                            </ul>
-                    </nav>
-                </div>
-            </div>
-            <div id="page-logo"> <img src="img/logo.png" /></div>
-            
-            <div id="sidebar">
+    <div class="container" id="wrapper">
+    	<div class="row">
+    		<div class="col-md-3" id="section-1">
+    			<div id="header">
+    				<center><h1>Записки <span>IT</span>'шника</h1></center>
+    			</div>
                 <div id="search">
-                    <input type="text" size="22"/><a href="#"><img src="img/Search.png" width="23px" heigth="23px" /></a>
+                    <input type="text" size="22" value="Найти..." /><a href="#"><img src="img/Search.png" width="23px" heigth="23px" /></a>
                 </div>
-                <div id="sign-in">
-                    <h4>Авторизация</h4>
-                    <p>login<input type="text" /></p>
-                    <p>password<input type="password" /></p>
-                    <input type="button" value="Войти"/>
-                
+                <div id="sign">
+	           		<table>
+               			<tr>
+               				<td><label>Login</label></td>
+               				<td><input type="text" name="login" /></td>
+               			</tr>
+               			<tr>
+               				<td><label>Password</label></td>
+               				<td><input type="password" name="password" /></td>
+               			</tr>
+               			<tr>
+               				<td></td>
+               				<td><a href="#">Регистрация</a><input class="btn-default" color="black" type="button" value="Войти" /></td>
+               			</tr>
+               		</table>
+                	                </div>
+                <div id="menu">
+                	<nav id="nav">
+					<h4><b>Рубрики</b></h4>
+					<ul> 
+					<li><a href="#">Web</a></li>
+					<li><a href="#">Software</a></li>
+					<li><a href="#">Hardware</a></li>
+					<li><a href="#">IT</a></li>
+					<li><a href="#">Servers</a></li>
+					<li><a href="#">Photoshop</a></li>
+					<li><a href="#">Windows</a></li>
+					<li><a href="#">Linux</a></li>
+					<li><a href="#">Social</a></li>
+					</ul>
+				</nav>
                 </div>
-                
-                <nav id="nav">
-                    <h4>Рубрики</h4>
-                <ul> 
-                    <li><a href="#">Web</a></li>
-                    <li><a href="#">Software</a></li>
-                    <li><a href="#">Hardware</a></li>
-                    <li><a href="#">IT</a></li>
-                    <li><a href="#">Servers</a></li>
-                    <li><a href="#">Photoshop</a></li>
-                    <li><a href="#">Windows</a></li>
-                    <li><a href="#">Linux</a></li>
-                    <li><a href="#">Social</a></li>
-                </ul>
-                </nav>
+            <div id="most_popular">
+            <h4><b>Самые популярные</b></h4>
+            <ul>
+            	<li>Настройка Веб-Сервера</li>
+        		<li>Как установить Виндоус</li>
+        		<li>Устранение неполадок центра обнволений</li>
+        		   	<li>Настройка Веб-Сервера</li>
+        		<li>Как установить Виндоус</li>
+        		<li>Устранение неполадок центра обнволений</li>
+        		   	<li>Настройка Веб-Сервера</li>
+        		<li>Как установить Виндоус</li>
+        		<li>Устранение неполадок центра обнволений</li>
+            </ul>
+            	
             </div>
-            
-            
-            <div id="content">
-            <div id="resize-img">
-              <h3>Click to resize fuckin image:</h3>
-                <input type="button" value="Увеличивать" class="zoomIn">
-                <input type="button" value="Уменьшать" class="zoomOut">
-                <img src="img/python_logo.png" />
-            </div>
-                
-                <h3>Projects in Brackets</h3>
-                <p> Once you're ready to get out of this sample project and edit your own code, you can use the dropdown
-                    in the left sidebar to switch folders. Right now, the dropdown says "Getting Started" - that's the
-                    folder containing the file you're looking at right now. Click on the dropdown and choose "Open Folder…"
-                    to open your own folder.
-                    You can also use the dropdown later to switch back to folders you've opened previously, including this
-                    sample project.</p>
+				
+    		</div>
+    		<div class="col-md-9 col-xs-12" id="content">
+				<div id="content">
+					<div class="row articles">
+						<div class="col-md-8 col-xs-12">
+							<h3>Projects in Brackets</h3>
+							<p> Once you're ready to get out of this sample project and edit your own code, you can use the dropdown
+							in the left sidebar to switch folders. Right now, the dropdown says "Getting Started" - that's the
+							folder containing the file you're looking at right now. Click on the dropdown and choose "Open Folder…"
+							to open your own folder.
+							You can also use the dropdown later to switch back </p>	
+						</div>
+						<div class="col-md-4 col-xs-0 space_clear"><img src="img/art.jpg" /></div>					
+					</div>
 
-                <h3>Projects in Brackets</h3>
-                <p> Once you're ready to get out of this sample project and edit your own code, you can use the dropdown
-                    in the left sidebar to switch folders. Right now, the dropdown says "Getting Started" - that's the
-                    folder containing the file you're looking at right now. Click on the dropdown and choose "Open Folder…"
-                    to open your own folder.
-                    You can also use the dropdown later to switch back to folders you've opened previously, including this
-                    sample project.</p>
+					<div class="row articles">
+						<div class="col-md-8 col-xs-12">
+							<h3>Projects in Brackets</h3>
+							<p> Once you're ready to get out of this sample project and edit your own code, you can use the dropdown
+							in the left sidebar to switch folders. Right now, the dropdown says "Getting Started" - that's the
+							folder containing the file you're looking at right now. Click on the dropdown and choose "Open Folder…"
+							to open your own folder.
+							You can also use the dropdown later to switch back </p>	
+						</div>
+						<div class="col-md-4 col-xs-0 space_clear"><img src="img/art1.jpg" /></div>					
+					</div>
 
-                <h3>Projects in Brackets</h3>
-                <p> Once you're ready to get out of this sample project and edit your own code, you can use the dropdown
-                    in the left sidebar to switch folders. Right now, the dropdown says "Getting Started" - that's the
-                    folder containing the file you're looking at right now. Click on the dropdown and choose "Open Folder…"
-                    to open your own folder.
-                    You can also use the dropdown later to switch back to folders you've opened previously, including this
-                    sample project.</p>
-            </div>
-            <div class="clear"></div>
-            <div id="footer">
+					<div class="row articles">
+						<div class="col-md-8 col-xs-12">
+							<h3>Projects in Brackets</h3>
+							<p> Once you're ready to get out of this sample project and edit your own code, you can use the dropdown
+							in the left sidebar to switch folders. Right now, the dropdown says "Getting Started" - that's the
+							folder containing the file you're looking at right now. Click on the dropdown and choose "Open Folder…"
+							to open your own folder.
+							You can also use the dropdown later to switch back </p>	
+						</div>
+						<div class="col-md-4 col-xs-0 space_clear"><img src="img/art.jpg" /></div>					
+					</div>
+				
+
+				<h3>Projects in Brackets</h3>
+				<p> Once you're ready to get out of this sample project and edit your own code, you can use the dropdown
+				in the left sidebar to switch folders. Right now, the dropdown says "Getting Started" - that's the
+				folder containing the file you're looking at right now. Click on the dropdown and choose "Open Folder…"
+				to open your own folder.
+				You can also use the dropdown later to switch back to folders you've opened previously, including this
+				sample project.</p>
+
+				<h3>Projects in Brackets</h3>
+				<p> Once you're ready to get out of this sample project and edit your own code, you can use the dropdown
+				in the left sidebar to switch folders. Right now, the dropdown says "Getting Started" - that's the
+				folder containing the file you're looking at right now. Click on the dropdown and choose "Open Folder…"
+				to open your own folder.
+				You can also use the dropdown later to switch back to folders you've opened previously, including this
+				sample project.</p>
+				</div>
+    		</div>
+    	</div>
+
+
+
+    <!-- Footer -->
+    	<div class="row">
+    		 <div class="col-md-12" id="footer">
                 <p align="center">Made by Urmat Bekbo</p>
                 <p>2016</p>
             </div>
-        </div>
+    	</div>
+    </div>
     </body>
 </html>

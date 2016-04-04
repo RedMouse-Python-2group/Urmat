@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+    {% block all_articles %}
+        {% for post in articles %}
+            <div class="row articles">
+                <div class="col-md-8 col-xs-12">
+                    <h3>{{ post.article_title }}</h3>
+                    <p>{{ post.article_text|truncatewords:50 }}</p>
+                </div>
+                <div class="col-md-4 col-xs-0 space_clear"><img src="{{ MEDIA_URL }}img/art.jpg" /></div>
+            </div>
+        {% endfor %}
+    {% endblock %}
