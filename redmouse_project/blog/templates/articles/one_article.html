@@ -1,12 +1,31 @@
 {% extends "base.html" %}
-    {% block all_articles %}
-        {% for post in article %}
-            <div class="row articles">
-                <div class="col-md-8 col-xs-12">
-                    <h3>{{ post.article_title }}</h3>
-                    <p>{{ post.article_text }}</p>
+{% load staticfiles %}
+    {% block content %}
+            <div class="row article_detail">
+                <div class="col-md-12 col-xs-12">
+                    <h3>{{ article.article_title }}</h3>
+                    <p">Дата публикации: {{ article.article_date }}</p>
+                    <span><a href="/articles/addlike/{{ article.id }}">Нравится:</a> {{ article.article_likes }}</span>
+                    <p><center><img src="{% static "art.jpg" %}" /></center></p>
+                    <p>{{ article.article_text }}</p>
+                    <p><button type="button" onclick="location.href='/articles/all/{{ post.id }}';" class="btn btn-default">Вернуться</button></p>
+                    <div class="comment_form">
+                        <div class="center">
+                            <h3>Написать комментарий: </h3>
+
+                            <form method="POST" action="/articles/addcomment/{{ article.id }}/" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                            <input type="submit" class="btn btn-default" value="Добавить комментарий">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="article_comments">
+                        <h3>Комментарии:</h3>
+                             {% for s in comments %}
+                                 <p>{{ s.comments_text }}</p>
+                             {% endfor %}
+                    </div>
                 </div>
-                <div class="col-md-4 col-xs-0 space_clear"><img src="art.jpg" /></div>
             </div>
-        {% endfor %}
     {% endblock %}

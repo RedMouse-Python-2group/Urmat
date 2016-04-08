@@ -1,9 +1,12 @@
 
 from django.conf.urls import url, patterns
 from django.contrib import admin
-from .views import article_create
-
 
 urlpatterns = [
-    url(r'^create/$', article_create, name="create"),
+    url(r'^$', 'blog.views.index'),
+    url(r'^page/(\d+)/$', 'blog.views.index'),
+    url(r'^articles/get/(?P<article_id>\d+)/$', 'blog.views.article'),
+    url(r'^articles/addlike/(?P<article_id>\d+)/$', 'blog.views.addLike'),
+    url(r'^articles/addcomment/(?P<article_id>\d+)/$', 'blog.views.addComment'),
+    url(r'^create/$', 'blog.views.article_create'),
 ]

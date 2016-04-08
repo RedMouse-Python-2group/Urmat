@@ -1,0 +1,11 @@
+{% extends "auth.html" %}
+    {% block auth %}
+        <div id="content">
+            <form action="/auth/registration/" method="post">
+            {% csrf_token %}
+                <h1>Регистрация</h1>
+                    {{ form.as_p }}
+                <input class="button" type="submit" value="Зарегистрировать">
+            </form>
+        </div>
+    {% endblock %}

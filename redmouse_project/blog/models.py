@@ -11,6 +11,8 @@ class Categorie(models.Model):
     cat_description = models.TextField()
     cat_url = models.CharField(max_length=200)
     cat_disabled = models.BooleanField(default=False)
+    def __unicode__(self):
+        return self.cat_title
 
 class Article(models.Model):
     class Meta():
@@ -21,12 +23,14 @@ class Article(models.Model):
     article_likes = models.IntegerField(default=0)    # or we can use blank=true, null=true
     article_disabled = models.BooleanField(default=False)
     article_categorie = models.ForeignKey(Categorie)
-
-    def __str__(self):
+    def __unicode__(self):
         return self.article_title
+
 
 class Comment(models.Model):
     class Meta():
         db_table = 'comments'
-    comments_text = models.TextField()
+    comments_text = models.TextField(verbose_name=u"Текст комментария")
     comments_article = models.ForeignKey(Article)
+    def __unicode__(self):
+        return self.comments_text

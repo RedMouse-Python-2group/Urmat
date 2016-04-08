@@ -1,12 +1,36 @@
 {% extends "base.html" %}
-    {% block all_articles %}
+{% load staticfiles %}
+    {% block content %}
         {% for post in articles %}
             <div class="row articles">
                 <div class="col-md-8 col-xs-12">
-                    <h3>{{ post.article_title }}</h3>
+                    <h3><a href="/articles/get/{{ post.id }}">{{ post.article_title }}</a></h3>
                     <p>{{ post.article_text|truncatewords:50 }}</p>
+                    <span>Нравится: {{ post.article_likes }}</span>
+                    <button type="button" onclick="location.href='/articles/get/{{ post.id }}';" class="btn btn-default">Подробнее...</button>
                 </div>
-                <div class="col-md-4 col-xs-0 space_clear"><img src="{{ MEDIA_URL }}img/art.jpg" /></div>
+                <div class="col-md-4 col-xs-0 space_clear"><img src="{% static "art1.jpg" %}" /></div>
             </div>
         {% endfor %}
-    {% endblock %}
+        <div class="pages">
+            <ul class="pagination">
+                {% if articles.has_previous %}
+                    <li class="arrow"><a href="/page/{{ articles.previous_page_number }}/">&laquo;</a></li>
+                {% else %}
+                     <li class="arrow unavailable"><a href="">&laquo;</a></li>
+                {% endif %}
+                {% for page in articles.paginator.page_range %}
+                    {% if page == articles.number %}
+                         <li class="current"><a href="/page/{{ page }}/">{{ page }}</a></li>
+                    {% else %}
+                         <li><a href="/page/{{ page }}/">{{ page }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% if articles.has_next %}
+                    <li class="arrow"><a href="/page/{{ articles.next_page_number }}/">&raquo;</a></li>
+                {% else %}
+                    <li class="arrow unavailable"><a href="">&raquo;</a></li>
+                {% endif %}
+             </ul>
+        </div>
+    {% endblock content %}
