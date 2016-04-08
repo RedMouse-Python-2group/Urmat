@@ -1,11 +1,38 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render, redirect, Http404
 from django.core.exceptions import ObjectDoesNotExist
-from blog.models import Article, Comment
+from blog.models import Article, Comment, Categorie
 from .forms import ArticleForm, CommentForm
 from django.core.context_processors import csrf
 from django.contrib import auth
 from django.core.paginator import Paginator
+
+"""
+start CBV mode
+"""
+from django.views.generic import TemplateView, ListView, DetailView
+
+class AboutView(TemplateView):
+    template_name = "about.html"
+
+class ArticlesList(ListView):
+    model = Article
+    page_number=1
+    current_page = Paginator(model, 10)
+    template_name = "articles/article_list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(ArticlesList, self).get_context_data(**kwargs)
+        context['categories'] = Categorie.objects.all()
+        context['popular_articles'] = Article.objects.order_by('-article_likes')[:10]
+        return context
+
+class ArticleDetail(DetailView):
+    pass
+
+"""
+End CBV
+"""
 
 def index(request, page_number=1):
     all_articles = Article.objects.all()
