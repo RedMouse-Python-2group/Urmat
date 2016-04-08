@@ -7,21 +7,22 @@ from django.core.context_processors import csrf
 from django.contrib import auth
 from django.core.paginator import Paginator
 
-"""
-start CBV mode
-"""
+#start CBV mode
 from django.views.generic import TemplateView, ListView, DetailView
 
 class AboutView(TemplateView):
+    """ Static page About me """
     template_name = "about.html"
 
 class ArticlesList(ListView):
+    """ Main class for main page"""
     model = Article
     page_number=1
-    current_page = Paginator(model, 10)
+    current_page = Paginator(model, 4)
     template_name = "articles/article_list.html"
 
     def get_context_data(self, **kwargs):
+        """ Function gets additional context """
         context = super(ArticlesList, self).get_context_data(**kwargs)
         context['categories'] = Categorie.objects.all()
         context['popular_articles'] = Article.objects.order_by('-article_likes')[:10]
@@ -29,26 +30,26 @@ class ArticlesList(ListView):
 
 class ArticleDetail(DetailView):
     pass
-
-"""
-End CBV
-"""
+#End CBV
 
 def index(request, page_number=1):
+    """ Main page function """
     all_articles = Article.objects.all()
-    current_page = Paginator(all_articles, 10)
+    current_page = Paginator(all_articles, 4)
     return render(request, 'articles/all_articles.html', {'articles': current_page.page(page_number), 'user': auth.get_user(request).username})
 
 def article(request, article_id=1):
-     context = {}
-     context.update(csrf(request))
-     context['article'] = Article.objects.get(id=article_id)
-     context['comments'] = Comment.objects.filter(comments_article_id=article_id)
-     context['form'] = CommentForm
-     context['user'] = auth.get_user(request).username
-     return render(request, "articles/one_article.html", context)
+    """ Function renders article detail """
+    context = {}
+    context.update(csrf(request))
+    context['article'] = Article.objects.get(id=article_id)
+    context['comments'] = Comment.objects.filter(comments_article_id=article_id)
+    context['form'] = CommentForm
+    context['user'] = auth.get_user(request).username
+    return render(request, "articles/one_article.html", context)
 
 def addLike(reques, article_id=1):
+    """ Function that allows to add likes """
     try:
         article = Article.objects.get(id=article_id)
         article.article_likes += 1
@@ -58,6 +59,7 @@ def addLike(reques, article_id=1):
     return redirect('/')
 
 def addComment(request, article_id=1):
+    """ Comment form appears under current article """
     if request.POST and ("spam" not in request.session):
         form = CommentForm(request.POST)
         if form.is_valid():
@@ -69,6 +71,7 @@ def addComment(request, article_id=1):
     return redirect('/articles/get/%s/' % article_id)
 
 def article_create(request):
+    """ Function creates article """
     if not request.user.is_authenticated():
         return redirect("/")
     form = ArticleForm(request.POST or None, request.FILES or None)

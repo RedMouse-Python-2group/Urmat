@@ -3,8 +3,8 @@ from __future__ import unicode_literals
 
 from django.db import models
 
-# Create your models here.
 class Categorie(models.Model):
+    """ Stores table categorie, for articles with fields below"""
     class Meta():
         db_table = 'categories'
     cat_title = models.CharField(max_length=20)
@@ -15,6 +15,7 @@ class Categorie(models.Model):
         return self.cat_title
 
 class Article(models.Model):
+    """ Stores table Article with fields below"""
     class Meta():
         db_table = 'articles'
     article_title = models.CharField(max_length=200)
@@ -28,6 +29,7 @@ class Article(models.Model):
 
 
 class Comment(models.Model):
+    """ Stores table Comment, for articles with fields below"""
     class Meta():
         db_table = 'comments'
     comments_text = models.TextField(verbose_name=u"Текст комментария")
