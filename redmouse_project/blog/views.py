@@ -7,7 +7,7 @@ from django.core.context_processors import csrf
 from django.contrib import auth
 from django.core.paginator import Paginator
 
-#start CBV mode
+# start CBV mode
 from django.views.generic import TemplateView, ListView, DetailView
 
 class AboutView(TemplateView):
@@ -30,7 +30,7 @@ class ArticlesList(ListView):
 
 class ArticleDetail(DetailView):
     pass
-#End CBV
+# End CBV
 
 def index(request, page_number=1):
     """ Main page function """
